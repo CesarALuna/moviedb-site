@@ -11,14 +11,17 @@ import NoImage from '../images/no_image.jpg'
 
 const Home = () => {
   const { state, loading, error } = useHomeFetch()
+  const randomNumber = Math.floor(Math.random() * 20)
+  console.log(randomNumber)
+
   console.log(state)
   return (
     <>
       {state.results[0] ? (
         <HeroImage
-          image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[0].backdrop_path}`}
-          title={state.results[0].original_title}
-          text={state.results[0].overview}
+          image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[randomNumber].backdrop_path}`}
+          title={state.results[randomNumber].original_title}
+          text={state.results[randomNumber].overview}
         />
       ) : null}
     </>
