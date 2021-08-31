@@ -39,3 +39,5 @@ export const useHomeFetch = () => {
 
   return { state, loading, error }
 }
+
+export default useHomeFetch
