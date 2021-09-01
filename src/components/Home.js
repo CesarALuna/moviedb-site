@@ -8,20 +8,25 @@ import Grid from './Grid'
 import Thumb from './Thumb'
 import Spinner from './Spinner'
 import SearchBar from './SearchBar'
+import Button from './Button'
 //hook
 import { useHomeFetch } from '../hooks/useHomeFetch'
 //image
 import NoImage from '../images/no_image.jpg'
 
 const Home = () => {
-  const { state, loading, error, setSearchTerm } = useHomeFetch()
-  const randomNumber = Math.floor(Math.random() * 10)
+  const { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore } =
+    useHomeFetch()
+  const randomNumber = Math.floor(Math.random() * state.results.length)
   console.log(randomNumber)
 
   console.log(state)
+
+  if (error) return <div>Something went wrong...</div>
+
   return (
     <>
-      {state.results[0] ? (
+      {!searchTerm && state.results[0] ? (
         <HeroImage
           image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[randomNumber].backdrop_path}`}
           title={state.results[randomNumber].original_title}
@@ -29,7 +34,7 @@ const Home = () => {
         />
       ) : null}
       <SearchBar setSearchTerm={setSearchTerm} />
-      <Grid header="Popular Movies">
+      <Grid header={searchTerm ? 'Search Results' : 'Popular Movies'}>
         {state.results.map((movie) => (
           <Thumb
             key={movie.id}
@@ -43,7 +48,10 @@ const Home = () => {
           />
         ))}
       </Grid>
-      <Spinner />
+      {loading && <Spinner />}
+      {state.page < state.total_pages && !loading && (
+        <Button text="Load More" callback={() => setIsLoadingMore(true)} />
+      )}
     </>
   )
 }
