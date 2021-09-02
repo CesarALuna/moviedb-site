@@ -12,6 +12,7 @@ const MovieInfo = ({ movie }) => (
   <Wrapper backdrop={movie.backdrop_path}>
     <Content>
       <Thumb
+        className="thumb"
         image={
           movie.poster_path
             ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
@@ -21,11 +22,11 @@ const MovieInfo = ({ movie }) => (
       />
       <Text>
         <h1>{movie.title}</h1>
-        <h3>Plot</h3>
+        <h3>PLOT</h3>
         <p>{movie.overview}</p>
         <div className="rating-directors">
           <div>
-            <h3>Rating</h3>
+            <h3>RATING</h3>
             <div className="score">{movie.vote_average}</div>
           </div>
           <div className="director">
