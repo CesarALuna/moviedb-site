@@ -41,7 +41,7 @@ class Home extends Component {
           ...movies,
           results:
             page > 1
-              ? [...prev.results, ...movies.results]
+              ? [...prev.movies.results, ...movies.results]
               : [...movies.results],
         },
         loading: false,
