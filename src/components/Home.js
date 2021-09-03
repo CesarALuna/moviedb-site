@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
-//Config
+// Config
 import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from '../config'
-//API
-import API from '../API'
-//components
+// Components
 import HeroImage from './HeroImage'
 import Grid from './Grid'
 import Thumb from './Thumb'
 import Spinner from './Spinner'
 import SearchBar from './SearchBar'
 import Button from './Button'
-//image
+// Image
 import NoImage from '../images/no_image.jpg'
+// API
+import API from '../API'
 
 const initialState = {
   page: 0,
@@ -65,7 +65,8 @@ class Home extends Component {
 
   render() {
     const { searchTerm, movies, loading, error } = this.state
-    if (error) return <div>Something went wrong...</div>
+
+    if (error) return <div>Something went wrong ...</div>
 
     return (
       <>
@@ -77,7 +78,7 @@ class Home extends Component {
           />
         ) : null}
         <SearchBar setSearchTerm={this.handleSearch} />
-        <Grid header={searchTerm ? 'Search Results' : 'Popular Movies'}>
+        <Grid header={searchTerm ? 'Search Result' : 'Popular Movies'}>
           {movies.results.map((movie) => (
             <Thumb
               key={movie.id}

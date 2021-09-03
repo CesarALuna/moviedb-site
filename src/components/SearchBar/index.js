@@ -10,7 +10,7 @@ class SearchBar extends Component {
   timeout = null
 
   componentDidUpdate(_prevProps, prevState) {
-    if (this.state.value !== prevState) {
+    if (this.state.value !== prevState.value) {
       const { setSearchTerm } = this.props
 
       clearTimeout(this.timeout)
