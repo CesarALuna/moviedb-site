@@ -65,16 +65,15 @@ class Home extends Component {
 
   render() {
     const { searchTerm, movies, loading, error } = this.state
-    const randomNumber = Math.floor(Math.random() * movies.results.length)
     if (error) return <div>Something went wrong...</div>
 
     return (
       <>
         {!searchTerm && movies.results[0] ? (
           <HeroImage
-            image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${movies.results[randomNumber].backdrop_path}`}
-            title={movies.results[randomNumber].original_title}
-            text={movies.results[randomNumber].overview}
+            image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${movies.results[0].backdrop_path}`}
+            title={movies.results[0].original_title}
+            text={movies.results[0].overview}
           />
         ) : null}
         <SearchBar setSearchTerm={this.handleSearch} />
