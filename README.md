@@ -1,4 +1,4 @@
-# React Movies :atom_symbol: :movie_camera:
+# React Movies :electron: :movie_camera:
 A simple movie site built with React and using the Movie Database API. Users can search the database and get information such as plot overview, full cast and credits, budget, and revenue. The site can be seen [here](https://cocky-fermi-6c9f00.netlify.app/)
 
 ### concepts
