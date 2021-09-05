@@ -30,7 +30,7 @@ const Movie = () => {
         revenue={movie.revenue}
       />
       <Grid header="Actors">
-        {movie.actor.map((actor) => (
+        {movie.actors.map((actor) => (
           <Actor
             key={actor.credit_id}
             name={actor.name}
